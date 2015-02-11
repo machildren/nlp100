@@ -5,31 +5,29 @@ import sys
 import argparse
 from lxml import etree
 
-
-__author__ = "@machildren"
+#(93) １番目の文の４番目のトークンの，係り受け構造上での子（dependent）の単語
+__author__ = "@machildren & yossy"
 __version__ = "0.0"
 
 def getArgs():
-    # パーサーの生成
-    parser = argparse.ArgumentParser(description="100本ノック91-100 xml")
+	# パーサーの生成
+	parser = argparse.ArgumentParser(description="xml parse")
 
-    # オプション引数の追加
-    parser.add_argument(
-        "-f", "--file",
-        dest="xml_file",
-        required=True,
-        help="xml形式のファイル"
-    )
-    return parser.parse_args()
+	# オプション引数の追加
+	parser.add_argument(
+		"-f", "--file",
+		dest="xml_file",
+		required=True,
+		help="xml形式のファイル"
+	)
+	return parser.parse_args()
 
 
 if __name__ == "__main__":
 	args = getArgs()
 	tree = etree.parse(args.xml_file)
-	root = tree.getroot() # ルート要素を取得(Element型)
-	#print etree.tostring(tree)
+	root = tree.getroot()
 
-	#タグをとテキストをすべて表示
 	for s_element in root.iter("sentence"):
 		if "id" in s_element.attrib:
 			if s_element.attrib["id"] == "1":

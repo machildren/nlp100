@@ -2,9 +2,9 @@ import xml.sax
 import xml.sax.handler
 import sys
 
-__author__ = "@machildren"
+__author__ = "@machildren & yossy"
 __version__ = "0.0"
-
+#(94) 記事のタイトル．
 
 class Handler(xml.sax.handler.ContentHandler):
 	def __init__(self):

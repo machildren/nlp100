@@ -3,6 +3,11 @@ import xml.sax.handler
 import sys
 import re
 
+#(96) 記事のタイトルとカテゴリ情報．複数のカテゴリが設定されているときは，全て抜き出せ．
+
+__author__ = "@machildren & yossy"
+__version__ = "0.0"
+
 class Handler(xml.sax.handler.ContentHandler):
 	def __init__(self):
 		self.frag = False
@@ -22,7 +27,6 @@ class Handler(xml.sax.handler.ContentHandler):
 	def characters(self, content):
 		if self.frag:
 			self.title_name = content
-	#		print "title:" + content.encode("utf-8")
 		if self.frag_category:
 			re_category_pattern = re.compile(r"(\[\[)(category:.+)(\]\])")
 			match = re_category_pattern.search(content)

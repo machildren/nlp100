@@ -5,7 +5,7 @@ import sys
 import argparse
 from lxml import etree
 
-__author__ = "@machildren"
+__author__ = "@machildren & yossy"
 __version__ = "0.0"
 
 

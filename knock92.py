@@ -5,29 +5,28 @@ import sys
 import argparse
 from lxml import etree
 
-__author__ = "@machildren"
+__author__ = "@machildren & yossy"
 __version__ = "0.0"
-
+#(92) １番目の文のlemmaを並べたもの
 
 def getArgs():
-    # パーサーの生成
-    parser = argparse.ArgumentParser(description="100本ノック91-100 xml")
+	# パーサーの生成
+	parser = argparse.ArgumentParser(description="xml parse")
 
-    # オプション引数の追加
-    parser.add_argument(
-        "-f", "--file",
-        dest="xml_file",
-        required=True,
-        help="xml形式のファイル"
-    )
-    return parser.parse_args()
+	# オプション引数の追加
+	parser.add_argument(
+		"-f", "--file",
+		dest="xml_file",
+		required=True,
+		help="xml形式のファイル"
+	)
+	return parser.parse_args()
 
 
 if __name__ == "__main__":
 	args = getArgs()
 	tree = etree.parse(args.xml_file)
-	root = tree.getroot() # ルート要素を取得(Element型)
-	#print etree.tostring(tree)
+	root = tree.getroot()
 	build_text_list = etree.XPath("//text()")
 	lemma_list = []
 	for s_element in root.iter("sentence"):

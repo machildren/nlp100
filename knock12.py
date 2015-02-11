@@ -7,7 +7,7 @@ python knock12.py tweet.txt
 
 __author__ = "@machildren"
 __version__ = "0.0"
-__date__ = "2014/10/24"
+__date__ = "2014/09/20"
 
 import sys
 import re

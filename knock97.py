@@ -2,6 +2,10 @@ import xml.sax
 import xml.sax.handler
 import sys
 import re
+#(97) 記事のタイトルと対応する英語のページタイトル（言語間リンク）．
+
+__author__ = "@machildren & yossy"
+__version__ = "0.0"
 
 class Handler(xml.sax.handler.ContentHandler):
 	def __init__(self):

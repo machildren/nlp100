@@ -4,6 +4,10 @@ import sys
 
 #(95) 記事にリダイレクト（転送）先が設定されているときは，記事のタイトルとリダイレクト先
 
+
+__author__ = "@machildren & yossy"
+__version__ = "0.0"
+
 class Handler(xml.sax.handler.ContentHandler):
 	def __init__(self):
 		self.frag = False
