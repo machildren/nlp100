@@ -3,10 +3,13 @@
 
 import sys
 
-def main(read_file):
-	for line in open(read_file):
-		for sentence in line.strip().rstrip('.').split(". "):
-			print sentence + '.'
+__author__ = "@machildren"
+__version__ = "1.0"
+
+def main():
+	for line in open('medline.txt'):
+		for line2 in line.strip().rstrip('.').split(". "):
+			print line2 + '.'
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main()

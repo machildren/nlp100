@@ -1,23 +1,18 @@
-#!/usr/bin/python
-#-*-cording:utf-8-*-
-
+# !usr/bin/python
+# coding:utf-8
 import sys
-from collections import defaultdict
-itemList1=[]
+from knock10 import *
 
-for line in open(sys.argv[1]):
-        itemList = line.strip().split('\t')
-        itemList1.append(itemList[1])
 
-#for address in itemList1:
-#        print address
+__author__ = "@machildren"
+__version__ = "1.0"
 
-addressDict = defaultdict(lambda: 0)
 
-for w in itemList1:
-        if w in addressDict:
-                addressDict[w] += 1
-        else:
-                addressDict[w] = 1
-for i, j in sorted(addressDict.items(), key = lambda x:-x[1]):
-        print "%s\t%r" %(i, j)
+def knock27():
+	wordlist=[]
+	for word in open('medline4.txt'):
+		wordlist.append(word)
+	main(wordlist)
+
+if __name__ == '__main__':
+	knock27()

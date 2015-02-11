@@ -5,35 +5,41 @@ import sys
 import argparse
 from lxml import etree
 
+__author__ = "@machildren"
+__version__ = "0.0"
+
+
 def getArgs():
-    # パーサーの生成
-    parser = argparse.ArgumentParser(description="100本ノック91-100 xml")
+	# パーサーの生成
+	parser = argparse.ArgumentParser(description="xml parse")
 
-    # オプション引数の追加
-    parser.add_argument(
-        "-f", "--file",
-        dest="xml_file",
-        required=True,
-        help="xml形式のファイル"
-    )
-    return parser.parse_args()
+	# オプション引数の追加
+	parser.add_argument(
+		"-f", "--file",
+		dest="xml_file",
+		required=True,
+		help="xml形式のファイル"
+	)
+	return parser.parse_args()
 
 
-if __name__ == "__main__":
-	args = getArgs()
+def main():
 	tree = etree.parse(args.xml_file)
-	root = tree.getroot() # ルート要素を取得(Element型)
-	#print etree.tostring(tree)
+	root = tree.getroot()
 
-	#タグをとテキストをすべて表示
-	for s_element in root.iter("sentence"):
-		if "id" in s_element.attrib:
-			if s_element.attrib["id"] == "2":
-				for w_element in s_element.iter("token"):
-					if "id" in w_element.attrib:
-						if w_element.attrib["id"] == "5":
-							for t_element in w_element.iter("word"):
-								print t_element.text
+	for k_element in root.iter("sentence"):
+		if "id" in k_element.attrib:
+			if k_element.attrib["id"] == "2":
+				for kk_element in k_element.iter("token"):
+					if "id" in kk_element.attrib:
+						if kk_element.attrib["id"] == "5":
+							for kkk_element in kk_element.iter("word"):
+								print kkk_element.text
 
 	build_text_list = root.XPath("//text()")
-#	print build_text_list(root)
+if __name__ == "__main__":
+	args = getArgs()
+	main()
+
+
+

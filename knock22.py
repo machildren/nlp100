@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-#knock22
-
+\
 import sys
 import re
 
@@ -11,7 +9,7 @@ __version__ = "1.0"
 
 
 def main():
-	for line in sys.stdin:
+	for line in open('medline.txt'):
 		line = line.strip()
 		print re.sub(r'\. ([A-Z])', r'.\n\1', line)
 if __name__ == "__main__":

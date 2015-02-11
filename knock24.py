@@ -1,18 +1,16 @@
 #!/usr/bin/python
-#-*-coding:utf-8-*-
+# -*- coding: utf-8 -*-
 
 import sys
-import re
+__author__ = "@machildren"
+__version__ = "1.0"
+def main():
+	for line in open('medline2.txt'):
+		for list_word in line.strip().split(" "):
+			if list_word[-1] in [".", ",","(",")"]:
+				print "%s\n%s" % (list_word[:-1], list_word[-1])
+			else:
+				print list_word
 
-re_priod = re.compile(r"([a-zA-Z]+)(\.|\,)+")
-
-for line in open(sys.argv[1]):
-        word = line.strip().split(" ")
-        word.append("\n")
-        for i in range(len(word)):
-                priod = re_priod.match(word[i])
-                if priod is None:
-                        print word[i]
-                else:
-                        print priod.group(1)
-                        print priod.group(2)
+if __name__ == "__main__":
+    main()

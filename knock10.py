@@ -6,18 +6,18 @@ execute
 python knock10.py col2.txt
 """
 __author__ = "@machildren"
-__version__ = "0.0"
-__date__ = "2014/10/24"
+__version__ = "1.0"
 
 import sys
 from collections import defaultdict
-def main():
+def main(f):
 	"""
 	main function
 	"""
 	d = defaultdict(int)
-	f = open(sys.argv[1])
-	line = f.readlines()
+	#f = open(sys.argv[1])
+	#line = f.readlines()
+	line = f
 	col = list()
 	for col1 in line:
 		col1 = col1.strip().split('\t')
@@ -28,4 +28,4 @@ def main():
 		print name, num
 
 if __name__ == '__main__':
-	main()
+	main(open(sys.argv[1]))

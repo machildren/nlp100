@@ -1,16 +1,17 @@
-#!/usr/bin/python
-#-*-coding:utf-8-*-
-
+# !usr/bin/python
+# coding:utf-8
 import sys
 import re
 
-re_nessly = re.compile(r"([a-zA-Z]+)(ness|ly)+")
+__author__ = "@machildren"
+__version__ = "1.0"
 
-for line in open(sys.argv[1]):
-        list = line.strip().split("\t")
-    word = list[0]
-        nessly = re_nessly.match(word)
-        if nessly is None:
-        pass
-        else:
-        print nessly.group()
+
+def main():
+	re_nessly = re.compile("(ness|ly)$")
+	for line in open('medline4.txt'):
+		if re_nessly.search(line) != None:
+			print line.strip()
+
+if __name__ == '__main__':
+	main()
